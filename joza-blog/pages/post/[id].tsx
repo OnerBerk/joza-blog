@@ -1,31 +1,27 @@
 import axios from 'axios';
 import {getAuthor, getFeaturedImage} from "../api/utils/request";
 import {POSTS_API_URL} from "../api/endpoints";
-import parse from "html-react-parser"
-import Head from "next/head";
+
 import Layout from "../../component/layout/layout/layout";
+import PostDetail from "../../component/post-detail/post-detail";
 
 type PostProps = {
-    featuredImg:string
-    author:string
-    content:string
-    date:Date
-    title:string
+    featuredImg: string
+    author: string
+    content: string
+    date: Date
+    title: string
 }
 
-const Post = ({title,featuredImg, author, content, date}: PostProps) => {
+const Post = ({title, featuredImg, author, content, date}: PostProps) => {
     return (
         <Layout meta="Post" title="Joz'Blog - Article">
-            <main>
-                <h1>{title}</h1>
-                <div>
-                    <img src={featuredImg}/>
-                </div>
-                <p>Written by {author}</p>
-                <p>Published on {new Date(date).toDateString()}</p>
-                <div>{parse(content)}</div>
-            </main>
-
+            <PostDetail
+                featuredImg={featuredImg}
+                author={author}
+                content={content}
+                date={date}
+                title={title}/>
         </Layout>
     );
 }
@@ -42,7 +38,7 @@ export async function getStaticPaths() {
     return {paths, fallback: false};
 }
 
-// This also gets called at build time
+// appelé au build aussi
 export async function getStaticProps({params}: any) {
     const res = await axios.get(`${POSTS_API_URL}/${params.id}`);
     const post = await res.data;

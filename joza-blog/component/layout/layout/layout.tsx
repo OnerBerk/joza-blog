@@ -1,15 +1,32 @@
 import Head from "next/head";
+import {useRouter} from "next/router";
+
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faInstagram, faLinkedin} from "@fortawesome/free-brands-svg-icons";
+import {faHome} from "@fortawesome/free-solid-svg-icons";
 import styles from "./layout.module.scss"
+import React, {useEffect, useState} from "react";
 
 type LayoutProps = {
     children: React.ReactNode
     title: string
-    meta:string
+    meta: string
 }
 
 const Layout = ({children, title, meta}: LayoutProps) => {
+    const routeur = useRouter()
+    const currentPath = routeur.pathname
+    const[home,setHome]=useState(false)
+    useEffect(() => {
+        if (currentPath === "/") {setHome(true)
+        }
+    }, [])
+    const homelink=()=>{
+        return(
+            !home && <a href={"/"}><FontAwesomeIcon icon={faHome}/></a>
+        )
+    }
+
     return (
         <div className={styles.layoutMain}>
             <Head>
@@ -24,8 +41,9 @@ const Layout = ({children, title, meta}: LayoutProps) => {
                     <strong> --News sur la vie du developpeur </strong>
                 </div>
                 <div className={styles.link}>
-                    <FontAwesomeIcon icon={faInstagram}/>
+                    {homelink()}
                     <FontAwesomeIcon icon={faLinkedin}/>
+                    <FontAwesomeIcon icon={faInstagram}/>
                 </div>
 
             </h1>
