@@ -1,0 +1,40 @@
+.postCardMain {
+  width: 17em;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  display: grid;
+  grid-template-rows: 11em 2fr;
+  img {
+    object-fit: cover;
+    width: 17em;
+    height: 11em;
+  }
+  .postCardInfo {
+    padding: 0.5em;
+    display: grid;
+    grid-template-rows: auto auto 1.5em;
+    .postCardTitle {
+      font-size: 1.7em;
+      font-weight: bold;
+      h5 {
+        margin-top: 0;
+        font-size: 0.5em;
+        font-weight: normal;
+        span {
+          font-size: smaller;
+          font-weight: bold;
+        }
+      }
+    }
+      .postCardContent {
+        display: flex;
+        align-items: center;
+        text-justify: inter-word;
+      }
+      .postCardContinue {
+        display: flex;
+        justify-content: right;
+        font-weight: bold;
+        font-size: 0.6em;
+      }
+    }
+  }
