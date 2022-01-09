@@ -3,8 +3,10 @@ import {useState, useEffect} from "react";
 import {getAuthor, getFeaturedImage} from "../../pages/api/utils/request";
 import DOMPurify from "dompurify";
 
-
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faLongArrowAltRight} from "@fortawesome/free-solid-svg-icons";
 import styles from "./post.module.scss"
+
 import {Ipost} from "../../domain/domain";
 
 type PostCard = {
@@ -54,9 +56,9 @@ const PostCard = ({post}: PostCard) => {
 
                 <div className={styles.postCardContent} dangerouslySetInnerHTML={sanitizedData()}/>
                 <Link href={`/post/${post.id}`}>
-                    <a className={styles.postCardContinue}>Continue reading </a>
+                    <a className={styles.postCardContinue}>Continue reading<FontAwesomeIcon icon={faLongArrowAltRight}/>
+                    </a>
                 </Link>
-
             </div>
 
         </div>

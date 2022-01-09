@@ -21,7 +21,6 @@ export const getAuthor = async (id: number) => {
 export const getFeaturedImage = async (id:number)=> {
     try {
         const res = await axios.get(`${MEDIA_API_URL}/${id}`);
-        console.log(res.data.guid.rendered)
         return res.data.guid.rendered;
     } catch (error) {
         console.log(error);

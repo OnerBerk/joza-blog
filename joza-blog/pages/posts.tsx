@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 import {getAllPosts} from "./api/utils/request";
 import PostCard from "../component/postCard/post-card";
-import PostsListLayout from "../component/layout/posts-list-layout/posts-list-layout";
+import CardsListLayout from "../component/layout/cards-list-layout/cards-list-layout";
+import Head from "next/head";
 
 const Posts = () => {
     const [posts, setPosts] = useState([])
@@ -13,16 +14,18 @@ const Posts = () => {
         }
         getPosts()
     }, [])
-
-    console.log("post",posts)
     return (
-        <PostsListLayout title="Post">
+        <CardsListLayout title="Joz'Blog">
+            <Head>
+                <title>Joz'Blog -Posts </title>
+                <meta name="Joz'Blog" content="joz'blog home page"/>
+            </Head>
                 {posts && posts.map((post,index)=>{
                     return(
                         <PostCard key={index} post={post}/>
                     )
                 })}
-        </PostsListLayout>
+        </CardsListLayout>
     )
 }
 export default Posts

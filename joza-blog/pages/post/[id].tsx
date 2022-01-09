@@ -3,6 +3,7 @@ import {getAuthor, getFeaturedImage} from "../api/utils/request";
 import {POSTS_API_URL} from "../api/endpoints";
 import parse from "html-react-parser"
 import Head from "next/head";
+import Layout from "../../component/layout/layout/layout";
 
 type PostProps = {
     featuredImg:string
@@ -14,11 +15,7 @@ type PostProps = {
 
 const Post = ({title,featuredImg, author, content, date}: PostProps) => {
     return (
-        <div>
-            <Head>
-                <title>{title}</title>
-                <meta name="article title" content="article detail"/>
-            </Head>
+        <Layout meta="Post" title="Joz'Blog - Article">
             <main>
                 <h1>{title}</h1>
                 <div>
@@ -29,7 +26,7 @@ const Post = ({title,featuredImg, author, content, date}: PostProps) => {
                 <div>{parse(content)}</div>
             </main>
 
-        </div>
+        </Layout>
     );
 }
 
