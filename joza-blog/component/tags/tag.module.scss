@@ -1,0 +1,28 @@
+.tagMain {
+  display: flex;
+  justify-content: center;
+
+  button {
+    padding: 0.4em;
+    border: 2px solid;
+    background-color: transparent;
+    width: 100%;
+    font-size: 0.8em;
+  }
+
+  button:active,
+  button:hover,
+  button:focus {
+    border: 1px solid black;
+    background-color: #c0161b;
+    color: snow;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .tagMain {
+    button {
+      width: 10em;
+    }
+  }
+}

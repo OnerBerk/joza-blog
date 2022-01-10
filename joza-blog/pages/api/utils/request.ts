@@ -1,5 +1,5 @@
 import axios from "axios";
-import {POSTS_API_URL, AUTHORS_API_URL, MEDIA_API_URL} from "../endpoints"
+import {POSTS_API_URL, AUTHORS_API_URL, MEDIA_API_URL, CATEGORIES_API_URL} from "../endpoints"
 
 export const getAllPosts = async () => {
     try {
@@ -18,7 +18,7 @@ export const getAuthor = async (id: number) => {
     }
 }
 
-export const getFeaturedImage = async (id:number)=> {
+export const getFeaturedImage = async (id: number) => {
     try {
         const res = await axios.get(`${MEDIA_API_URL}/${id}`);
         return res.data.guid.rendered;
@@ -27,3 +27,12 @@ export const getFeaturedImage = async (id:number)=> {
         return '';
     }
 };
+
+export const getAllCategories = async () => {
+    try {
+        const {data} = await axios.get(CATEGORIES_API_URL)
+        return data
+    } catch (e) {
+        console.log(e)
+    }
+}

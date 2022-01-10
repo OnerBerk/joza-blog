@@ -1,6 +1,4 @@
-
 import type {NextPage} from 'next'
-import Link from "next/link";
 import Layout from "../component/layout/layout/layout";
 import Posts from "./posts";
 

@@ -9,3 +9,11 @@ export  interface Ipost{
     title:{rendered:string}
     type:string
 }
+
+export interface Icategorie{
+    id:number
+    description:string
+    name:string
+    slug:string
+    meta:[]
+}

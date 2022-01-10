@@ -29,7 +29,7 @@ const PostDetail = ({title, featuredImg, date, content, author}: PostDetailProps
                 </div>
             </div>
 
-            <div>{parse(content)}</div>
+            <div className={styles.postDetailContent}>{parse(content)}</div>
         </main>
     )
 }
