@@ -27,7 +27,7 @@ const Posts = () => {
             setCategorieList={setCategorieList}
             title="Joz'Blog">
             <Head>
-                <title>Joz'Blog -Posts </title>
+                <title>{"Joz'Blog -Posts"} </title>
                 <meta name="Joz'Blog" content="joz'blog home page"/>
             </Head>
             {posts && posts.map((post: Ipost, index) => {

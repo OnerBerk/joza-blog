@@ -1,9 +1,8 @@
 .postCardMain {
   width: 13em;
-  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  box-shadow: rgba(255, 255, 255, 0.1) 0 1px 1px 0 inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   display: grid;
-  grid-template-rows: 10em 1.8fr;
-
+  grid-template-rows: 10em 19em;
   img {
     object-fit: cover;
     width: 13em;
@@ -13,10 +12,11 @@
   .postCardInfo {
     padding: 0.5em;
     display: grid;
-    grid-template-rows: auto auto 1.5em;
+    grid-template-rows: 5em auto 1em;
+
 
     .postCardTitle {
-      font-size: 1.7em;
+      font-size: 1.5em;
       font-weight: bold;
 
       h5 {
@@ -32,8 +32,7 @@
     }
 
     .postCardContent {
-      display: flex;
-      align-items: center;
+      margin-top: 2em;
       text-justify: inter-word;
     }
 

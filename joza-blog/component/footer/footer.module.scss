@@ -1,0 +1,14 @@
+  .footerMain {
+    display: flex;
+    justify-content: center;
+
+    span {
+      cursor: pointer;
+    }
+
+    span:hover {
+      color: #c0161b;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }

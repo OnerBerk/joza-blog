@@ -1,70 +1,15 @@
 .layoutMain {
   min-height: 100vh;
   display: grid;
-  grid-template-rows: 3.5em auto 1.5em;
+  grid-template-rows: auto 1.5em;
   padding-top: 1em;
   width: 100%;
 
-  h1 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-size: 1.1em;
-    font-weight: bold;
-    padding-right: 1em;
-    padding-left: 1em;
-
-    .layoutMainTitle {
-      strong {
-        color: rgba(192, 22, 27, 0.56);
-        font-size: 0.9em;
-      }
-    }
-
-    svg {
-      margin-left: 0.5em;
-      cursor: pointer;
-    }
-
-    svg:hover {
-      color: #c0161b;
-
-    }
-  }
-
   .layoutBody {
+    margin-top: 3em;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 2em;
-  }
-
-  footer {
-    display: flex;
-    justify-content: center;
-
-    span {
-      cursor: pointer;
-    }
-
-    span:hover {
-      color: #c0161b;
-      font-weight: bold;
-      text-decoration: underline;
-    }
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .layoutMain {
-    h1 {
-      font-size: smaller;
-    }
-
-    .layoutMainTitle {
-      display: flex;
-      flex-direction: column;
-    }
-
   }
 }

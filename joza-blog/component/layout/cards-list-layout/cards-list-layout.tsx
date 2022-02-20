@@ -1,9 +1,9 @@
 import Head from "next/head";
-import styles from "./cards-list-layout.module.scss"
 import {getAllCategories} from "../../../pages/api/utils/request";
 import {useEffect, useState} from "react";
 import {Icategorie} from "../../../domain/domain";
 import Tag from "../../tags/tag";
+import styles from "./cards-list-layout.module.scss"
 
 type PostList = {
     categorieList: []
@@ -39,20 +39,18 @@ const CardsListLayout = (
             </Head>
             <div className={styles.postsLayoutBody}>
                 <div className={styles.postsLayoutCategories}>
-                    {categorieList.map((categorie: Icategorie, categorieIdx) => {
+                    {categorieList.map((categorie: Icategorie) => {
                         return (
                             <Tag
-                                onClick={() => setCategorieId(categorie.id)}
                                 key={categorie.id}
+                                onClick={() => setCategorieId(categorie.id)}
                                 title={categorie.name}/>
                         )
                     })}
-
                 </div>
                 <div className={styles.postsLayoutChildren}>
                     {children}
                 </div>
-
             </div>
         </div>
     )

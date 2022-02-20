@@ -17,7 +17,6 @@ export const getAuthor = async (id: number) => {
         console.log(e)
     }
 }
-
 export const getFeaturedImage = async (id: number) => {
     try {
         const res = await axios.get(`${MEDIA_API_URL}/${id}`);
@@ -27,7 +26,6 @@ export const getFeaturedImage = async (id: number) => {
         return '';
     }
 };
-
 export const getAllCategories = async () => {
     try {
         const {data} = await axios.get(CATEGORIES_API_URL)
