@@ -1,0 +1,33 @@
+
+.postsLayoutCategories {
+  height: 3.5em;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+  background-color: rgba(255, 255, 255, 0.82);
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+@media all and (max-width: 1100px) {
+  .postsLayoutCategories {
+    justify-content: center;
+    grid-template-columns: repeat(3, 13em);
+  }
+}
+
+@media all and (max-width: 800px) {
+  .postsLayoutCategories {
+    justify-content: center;
+    grid-template-columns: repeat(2, 13em);
+  }
+}
+
+@media all and (max-width: 500px) {
+  .postsLayoutCategories {
+    grid-template-columns:1fr 1fr;
+  }
+}

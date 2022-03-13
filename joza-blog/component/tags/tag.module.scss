@@ -1,7 +1,9 @@
 .tagMain {
   display: flex;
   justify-content: center;
-  width: 13em;
+  min-width: 8em;
+  height: 2em;
+  margin-right: 1em;
 
   button {
     padding: 0.4em;
@@ -11,19 +13,15 @@
     font-size: 0.8em;
   }
 
-  button:active,
-  button:hover,
-  button:focus {
+  .focusBtn {
     border: 1px solid black;
     background-color: #c0161b;
     color: snow;
   }
-}
 
-@media all and (max-width: 500px) {
-  .tagMain {
-    button {
-      width: 10em;
-    }
+  button:hover {
+    border: 1px solid black;
+    background-color: #c0161b;
+    color: snow;
   }
 }

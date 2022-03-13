@@ -1,13 +1,12 @@
 .layoutMain {
   min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1.5em;
   padding-top: 1em;
   width: 100%;
 
   .layoutBody {
-    margin-top: 3em;
     display: flex;
+    flex-direction: column;
+    margin-top: 3em;
     justify-content: center;
     align-items: center;
     margin-bottom: 2em;
