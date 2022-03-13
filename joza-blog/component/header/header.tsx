@@ -4,11 +4,13 @@ import {faInstagram, faLinkedin} from "@fortawesome/free-brands-svg-icons";
 import {faHome} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";
 import styles from "./header.module.scss";
+import getWidth from "../../utils/getWidth";
 
 const Header = () => {
     const routeur = useRouter()
     const currentPath = routeur.pathname
     const [home, setHome] = useState(false)
+    const width = getWidth()
     useEffect(() => {
         if (currentPath === "/") {
             setHome(true)
@@ -23,14 +25,15 @@ const Header = () => {
         <div className={styles.headerMain}>
             <h1>
                 <div className={styles.layoutMainTitle}>
-                   <a href={"/"}>
-                       Bienvenue sur {"Joz'Blog"}
-                       <strong> -- News sur la vie du developpeur </strong>
-                   </a>
+                    <a href={"/"}>
+                        Bienvenue sur {"Joz'Blog"}{width < 580 ? <br/> : ""}
+                        <strong> -- News sur la vie du developpeur </strong>
+                    </a>
                 </div>
                 <div className={styles.link}>
                     {homelink()}
-                    <a href="https://www.linkedin.com/company/11029366/admin/" target="_blank" rel="noreferrer"><FontAwesomeIcon
+                    <a href="https://www.linkedin.com/company/11029366/admin/" target="_blank"
+                       rel="noreferrer"><FontAwesomeIcon
                         icon={faLinkedin}/></a>
                     <a href="https://www.instagram.com/joza.it/" target="_blank" rel="noreferrer"><FontAwesomeIcon
                         icon={faInstagram}/></a>

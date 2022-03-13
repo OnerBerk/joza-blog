@@ -25,3 +25,9 @@
     color: snow;
   }
 }
+
+@media all and (max-width: 850px) {
+  .tagMain {
+    font-size: 0.9em;
+  }
+}

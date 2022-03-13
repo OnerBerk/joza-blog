@@ -5,6 +5,9 @@ import {Icategorie} from "../../domain/domain";
 import {getAllCategories} from "../../pages/api/utils/request";
 
 import styles from "./categories-caroussel.module.scss";
+import getWidth from "../../utils/getWidth";
+import {faHome, faAngleDown, faAngleUp} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
 type CategorieCarousselProps = {
@@ -14,8 +17,8 @@ type CategorieCarousselProps = {
 
 const CategoriesCaroussel = ({setCategorieId, categorieId}: CategorieCarousselProps) => {
     const [categorieList, setCategorieList] = useState<[]>([])
-    const [selected, setSelected] = React.useState([]);
-
+    const [openDropdown, setOpenDropDown] = useState<boolean>(false)
+    const width = getWidth()
 
     useEffect(() => {
         const getCategorieList = async () => {
@@ -26,21 +29,59 @@ const CategoriesCaroussel = ({setCategorieId, categorieId}: CategorieCarousselPr
     }, [])
 
     return (
+        <>{width > 550
+            ?
+            <div className={styles.postsLayoutCategories}>
+                {categorieList.map((categorie: Icategorie) => {
+                    return (
+                        <Tag
+                            itemId={categorieId}
+                            focus={categorie.id === categorieId ? 'focusBtn' : ''}
+                            key={categorie.id}
+                            onClick={() => {
+                                setCategorieId(categorie.id)
+                            }}
+                            title={categorie.name}/>
+                    )
+                })}
+            </div>
+            :
+            <>
+                <div
+                    onClick={() => setOpenDropDown(!openDropdown)}
+                    className={styles.hamburger}>
+                    <div>Categories
+                        {openDropdown
+                            ? <FontAwesomeIcon icon={faAngleUp}/>
 
-        <div className={styles.postsLayoutCategories}>
-            {categorieList.map((categorie: Icategorie) => {
-                return (
-                    <Tag
-                        itemId={categorieId}
-                        focus={categorie.id === categorieId ? 'focusBtn' : ''}
-                        key={categorie.id}
-                        onClick={() => {
-                            setCategorieId(categorie.id)
-                        }}
-                        title={categorie.name}/>
-                )
-            })}
-        </div>
+                            : <FontAwesomeIcon icon={faAngleDown}/>
+                        }
+                    </div>
+                </div>
+                {
+                    openDropdown &&
+                    <div className={styles.dropdown}>
+                        {categorieList.map((categorie: Icategorie) => {
+                            return (
+                                <Tag
+                                    itemId={categorieId}
+                                    focus={categorie.id === categorieId ? 'focusBtn' : ''}
+                                    key={categorie.id}
+                                    onClick={() => {
+                                        setOpenDropDown(false)
+                                        setCategorieId(categorie.id)
+                                    }}
+                                    title={categorie.name}/>
+                            )
+                        })}
+                    </div>
+                }
+            </>
+
+        }
+
+        </>
+
 
     )
 }
